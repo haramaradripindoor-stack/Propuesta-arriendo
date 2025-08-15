@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta de Colaboración Inmobiliaria - Puerto Varas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c5530 0%, #5d8aa8 100%);
+            color: #333;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+        .proposal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2c5530, #5d8aa8);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1.5" fill="white" opacity="0.1"/><circle cx="80" cy="80" r="1.5" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/></svg>');
+        }
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        .header h1 {
+            margin: 0 0 15px 0;
+            font-size: 2.2em;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        .content {
+            padding: 50px 40px;
+        }
+        .opening-reflection {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 4px solid #6c757d;
+            padding: 35px;
+            margin-bottom: 45px;
+            border-radius: 8px;
+            font-style: italic;
+            color: #495057;
+        }
+        .opening-reflection p {
+            margin: 0;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .philosophical-intro {
+            margin: 40px 0;
+            color: #495057;
+        }
+        .philosophical-intro h2 {
+            color: #2c5530;
+            font-size: 1.6em;
+            font-weight: 300;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .philosophical-intro p {
+            text-align: justify;
+            margin-bottom: 18px;
+            font-size: 1.05em;
+        }
+        .proposal-essence {
+            background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+            border-left: 4px solid #28a745;
+            padding: 35px;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+        .proposal-essence h3 {
+            color: #155724;
+            margin-top: 0;
+            font-size: 1.5em;
+            font-weight: 300;
+            text-align: center;
+        }
+        .harmony-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin: 40px 0;
+        }
+        .harmony-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-top: 3px solid #5d8aa8;
+        }
+        .harmony-card h4 {
+            color: #2c5530;
+            margin-top: 0;
+            font-size: 1.3em;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .harmony-list {
+            list-style: none;
+            padding: 0;
+        }
+        .harmony-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #495057;
+            font-size: 1.02em;
+        }
+        .harmony-list li:last-child {
+            border-bottom: none;
+        }
+        .harmony-list li::before {
+            content: '•';
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-right: 12px;
+        }
+        .values-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            margin: 40px 0;
+        }
+        .values-table h4 {
+            background: #2c5530;
+            color: white;
+            padding: 25px;
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 300;
+            text-align: center;
+        }
+        .values-content {
+            padding: 30px;
+        }
+        .values-content table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .values-content table th,
+        .values-content table td {
+            padding: 15px 18px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .values-content table th {
+            background: #f8f9fa;
+            font-weight: 500;
+            color: #495057;
+            font-size: 1.05em;
+        }
+        .values-content table td {
+            color: #6c757d;
+        }
+        .highlight-value {
+            color: #28a745;
+            font-weight: 600;
+        }
+        .commitment-section {
+            background: linear-gradient(135deg, #fff8e1, #ffeaa7);
+            border: 1px solid #e3c567;
+            padding: 35px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        .commitment-section h3 {
+            color: #856404;
+            margin-top: 0;
+            font-size: 1.5em;
+            font-weight: 300;
+            text-align: center;
+        }
+        .commitment-section p {
+            color: #6c5500;
+            text-align: center;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+        .respectful-close {
+            background: linear-gradient(135deg, #2c5530, #28a745);
+            color: white;
+            padding: 45px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 45px 0;
+            box-shadow: 0 12px 30px rgba(44, 85, 48, 0.3);
+        }
+        .respectful-close h3 {
+            font-size: 1.7em;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        .respectful-close p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+        .signature-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+            border-left: 4px solid #6c757d;
+        }
+        .signature-section p {
+            color: #495057;
+            font-style: italic;
+            margin: 0;
+        }
+        .key-numbers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin: 35px 0;
+        }
+        .number-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            text-align: center;
+            border-top: 3px solid #5d8aa8;
+        }
+        .number-value {
+            font-size: 1.8em;
+            font-weight: 300;
+            color: #2c5530;
+            margin: 10px 0;
+        }
+        .number-label {
+            color: #6c757d;
+            font-size: 0.95em;
+        }
+        @media (max-width: 768px) {
+            .harmony-section {
+                grid-template-columns: 1fr;
+            }
+            .key-numbers {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .content {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal-container">
+        <div class="header">
+            <div class="header-content">
+                <h1>🏡 Propuesta de Colaboración</h1>
+                <div class="subtitle">Casa Puerto Varas - Un Camino Compartido hacia el Bien Común</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="opening-reflection">
+                <p>"En toda transacción verdaderamente exitosa, ambas partes deben encontrar no solo beneficio económico, sino también la satisfacción de haber contribuido al bienestar mutuo y al desarrollo armónico de la comunidad."</p>
+            </div>
+
+            <div class="philosophical-intro">
+                <h2>🌱 Reflexión Inicial</h2>
+                <p>Estimados propietarios, me dirijo a ustedes con el profundo respeto que merece toda decisión que involucra el hogar, ese espacio sagrado donde se construyen los cimientos de la vida familiar y se cultivan los sueños más preciados.</p>
+                
+                <p>Entiendo que esta propiedad representa para ustedes mucho más que una inversión financiera: es el fruto de esfuerzo, dedicación y visión de futuro. Por mi parte, veo en ella no solo un lugar donde establecer mi residencia, sino la oportunidad de formar parte de la hermosa comunidad de Puerto Varas, contribuyendo al crecimiento armónico de esta región que tanto valoramos.</p>
+                
+                <p>Con esta comprensión mutua como fundamento, me permito presentarles una propuesta que busca honrar tanto sus necesidades como las mías, creando un puente de beneficio compartido que trascienda la mera transacción comercial.</p>
+            </div>
+
+            <div class="proposal-essence">
+                <h3>💫 La Esencia de Nuestra Colaboración</h3>
+                <p style="text-align: center; font-size: 1.15em; margin: 0;">
+                    <strong>Les propongo un acuerdo de convivencia temporal que evolucione naturalmente hacia la adquisición definitiva, 
+                    permitiendo que ambas partes florezcan en armonía con sus respectivos tiempos y necesidades.</strong>
+                </p>
+            </div>
+
+            <div class="key-numbers">
+                <div class="number-card">
+                    <div class="number-value">$600,000</div>
+                    <div class="number-label">Contribución Mensual</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">27 meses</div>
+                    <div class="number-label">Período de Convivencia</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">$16.2M</div>
+                    <div class="number-label">Aporte Total</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">20.25%</div>
+                    <div class="number-label">Participación Inicial</div>
+                </div>
+            </div>
+
+            <div class="harmony-section">
+                <div class="harmony-card">
+                    <h4>🌸 Beneficios para su Bienestar</h4>
+                    <ul class="harmony-list">
+                        <li>Ingresos constantes y dignos desde octubre 2025</li>
+                        <li>Seguridad financiera con $600,000 mensuales confiables</li>
+                        <li>Certeza de realización con venta programada enero 2028</li>
+                        <li>Cuidado responsable y amoroso de su propiedad</li>
+                        <li>Inquilino comprometido con los valores comunitarios</li>
+                        <li>Transparencia total en el proceso y comunicación</li>
+                        <li>Preservación del valor y dignidad del inmueble</li>
+                        <li>Contribución al desarrollo local de Puerto Varas</li>
+                    </ul>
+                </div>
+                
+                <div class="harmony-card">
+                    <h4>🙏 Mi Compromiso Sagrado</h4>
+                    <ul class="harmony-list">
+                        <li>Puntualidad inquebrantable en cada aporte mensual</li>
+                        <li>Adquisición definitiva como acto de honor en enero 2028</li>
+                        <li>Mantenimiento amoroso del hogar como si fuera propio</li>
+                        <li>Respeto profundo por la historia y esencia del lugar</li>
+                        <li>Transparencia total en mi situación financiera</li>
+                        <li>Comunicación abierta y respetuosa en todo momento</li>
+                        <li>Integración positiva a la comunidad del condominio</li>
+                        <li>Gratitud permanente por la confianza depositada</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="values-table">
+                <h4>📊 Estructura de Nuestra Colaboración</h4>
+                <div class="values-content">
+                    <table>
+                        <tr>
+                            <th>Aspecto</th>
+                            <th>Detalle</th>
+                            <th>Significado Profundo</th>
+                        </tr>
+                        <tr>
+                            <td>Contribución Mensual</td>
+                            <td class="highlight-value">$600,000</td>
+                            <td>Reconocimiento justo del valor de su patrimonio</td>
+                        </tr>
+                        <tr>
+                            <td>Período de Convivencia</td>
+                            <td class="highlight-value">27 meses</td>
+                            <td>Tiempo sabio para la preparación mutua</td>
+                        </tr>
+                        <tr>
+                            <td>Aporte Acumulado</td>
+                            <td class="highlight-value">$16,200,000</td>
+                            <td>Demostración concreta de compromiso</td>
+                        </tr>
+                        <tr>
+                            <td>Participación como Pie</td>
+                            <td class="highlight-value">20.25%</td>
+                            <td>Base sólida para la adquisición definitiva</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha de Culminación</td>
+                            <td class="highlight-value">Enero 2028</td>
+                            <td>Momento de celebración y culminación</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="commitment-section">
+                <h3>🤝 Palabra de Honor</h3>
+                <p><strong>Mi compromiso trasciende lo meramente contractual.</strong> Les ofrezco mi palabra de honor, respaldada por una sólida proyección financiera que demuestra crecimiento patrimonial constante y responsable.</p>
+                <p>Mi situación crediticia se liberará completamente en agosto de 2027, garantizando las condiciones óptimas para la adquisición definitiva mediante financiamiento bancario tradicional.</p>
+                <p><strong>Esta no es una promesa condicional, sino un compromiso firme nacido de la admiración por su propiedad y el respeto por su confianza.</strong></p>
+            </div>
+
+            <div class="signature-section">
+                <p><em>"Que esta propuesta sea el inicio de una colaboración que honre tanto la sabiduría de su experiencia como la sinceridad de mis intenciones, creando juntos un ejemplo de cómo las transacciones inmobiliarias pueden ser, ante todo, actos de mutuo respeto y beneficio compartido."</em></p>
+            </div>
+
+            <div class="respectful-close">
+                <h3>🌅 Invitación a la Colaboración</h3>
+                <p>Les invito respetuosamente a considerar esta propuesta no solo con la mente calculadora del negocio, sino también con el corazón que comprende el valor de las relaciones humanas genuinas.</p>
+                <p>Estoy convencido de que juntos podemos crear un acuerdo que sea ejemplo de cómo la sabiduría financiera y la calidad humana pueden caminar de la mano hacia el bien común.</p>
+                <p style="font-size: 1.2em; font-weight: 400; margin-top: 30px;">
+                    <strong>¿Me concederían el honor de su consideración y, espero, de su confianza?</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
